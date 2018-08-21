@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mapfre.dgtp</groupId>
+    <groupId>org.emaginalabs</groupId>
     <artifactId>bean-proxy-controller</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
@@ -15,8 +15,10 @@
         <gaia.version>2.4.1</gaia.version>
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
-        <commons-lang3.version>7</commons-lang3.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <guava.version>22.0</guava.version>
     </properties>
 
     <dependencies>
@@ -62,35 +64,19 @@
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.mapfre.dgtp.gaia</groupId>
-            <artifactId>gaia-commons</artifactId>
-            <version>${gaia.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.mapfre.dgtp.gaia</groupId>
-            <artifactId>gaia-core</artifactId>
-            <version>${gaia.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j-api.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>1.5.14</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <version>${servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -98,7 +84,11 @@
             <artifactId>commons-beanutils</artifactId>
             <version>${commons-beanutils.version}</version>
         </dependency>
-       
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
     </dependencies>
     
     <build>
