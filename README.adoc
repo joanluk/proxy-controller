@@ -1,0 +1,5 @@
+
+
+= Componente autoexposición beans de spring
+
+Este componente permite exponer un api el cual es capaz de invocar a cualquier método público de cualquier bean de Spring disponible.
