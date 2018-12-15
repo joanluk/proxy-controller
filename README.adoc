@@ -1,4 +1,4 @@
-
+image:https://travis-ci.org/joanluk/proxy-controller.svg?branch=develop["Build Status", link="https://travis-ci.org/joanluk/proxy-controller"]
 
 = Componente autoexposición beans de spring
 
