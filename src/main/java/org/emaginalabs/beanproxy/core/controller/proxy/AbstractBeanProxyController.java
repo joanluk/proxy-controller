@@ -11,9 +11,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 /**
- * Base class for a Bean Proxy Controllers implementations used by 
- * {@link com.mapfre.dgtp.gaiafrontend.core.controller.proxy.BeanProxyControllerDocumentation} to
- * create dinamyc documnentation
+ * Base class for a Bean Proxy Controllers implementations
  * 
  * @author jose
  *
@@ -32,10 +30,6 @@ public abstract class AbstractBeanProxyController implements RequestPreffixMappi
 	}
 	
 	protected Method getMethod(Object service, String methodName) {
-		
-		//TODO mejorar, p.e si el bean implementa ApplicationContextAware se podria ejecutar el metodo setApplicationContext
-		// lo cual no es del todo incorrecto dada la idea del beanProxyController pero habria que ver como eliminar esa posibilidad.
-				
 
 		return getMethod(service.getClass(), methodName);
 	}

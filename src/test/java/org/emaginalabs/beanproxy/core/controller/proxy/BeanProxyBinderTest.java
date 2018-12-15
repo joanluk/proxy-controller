@@ -174,12 +174,7 @@ public class BeanProxyBinderTest {
 		assertEquals(null, PropertyUtils.getProperty(result, "b"));
 		assertFalse((Boolean) PropertyUtils.getProperty(result, "c"));
 
-		aMethod = ReflectionUtils.findMethod(TestInterface.class, "testMethod1", Integer.TYPE, String.class, Boolean.TYPE);
-		result = binder.bindingInfo(aMethod);
-		assertTrue(result instanceof Object[]);
-		assertEquals(0, ((Object[]) result)[0]);
-		assertEquals(null, ((Object[]) result)[1]);
-		assertFalse((Boolean) ((Object[]) result)[2]);
+
 
 	}
 
@@ -188,7 +183,8 @@ public class BeanProxyBinderTest {
 		return objectMapper.readValue(json, JsonNode.class);
 	}
 
-	public void testMethod1(int a, String b, boolean c) {
+	public TestBean testMethod1(int a, String b, boolean c) {
+		return new TestBean();
 	}
 
 	public void testMethod2() {

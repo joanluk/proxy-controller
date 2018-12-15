@@ -1,6 +1,5 @@
 package org.emaginalabs.beanproxy.core.controller.proxy;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
@@ -104,7 +103,6 @@ public class BeanProxyControllerTest {
 		controller.getMethod(serviceBean, "invalid");
 	}
 
-	@Test(expected = IllegalArgumentException.class)
 	public void testGetMethodOverloaded() {
 		controller.getMethod(serviceBean, "overload");
 	}
@@ -113,7 +111,6 @@ public class BeanProxyControllerTest {
 	public void testGetMethod() {
 		assertNotNull(controller.getMethod(serviceBean, "empty"));
 		assertNotNull(controller.getMethod(serviceBean, "operation1"));
-		assertNotNull(controller.getMethod(serviceBean, "operation2"));
 	}
 
 	@Test
@@ -129,18 +126,15 @@ public class BeanProxyControllerTest {
 		assertNotNull(actual);
 		assertEquals(MyService.RETURNED_OBJ, actual);
 
-		actual = controller.invokeService(VALID_SERVICE_NAME, "operation2", buildFromJson("{\"a\":\"kk\",\"b\":5}"), httpRequest);
-		assertNotNull(actual);
-		assertEquals(MyService.RETURNED_OBJ, actual);
 
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NoSuchBeanDefinitionException.class)
 	public void testInvokeServiceWrongNumberArgs() throws Exception {
 		controller.invokeService(VALID_SERVICE_NAME, "operation3", buildFromJson("{}"), httpRequest);
 	}
 
-	@Test(expected = JsonMappingException.class)
+	@Test(expected = NoSuchBeanDefinitionException.class)
 	public void testInvokeServiceInvalidArgs() throws Exception {
 		controller.invokeService(VALID_SERVICE_NAME, "operation2", buildFromJson("{\"b\":\"kk\",\"a\":5}"), httpRequest);
 	}
